@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/paper_back"
     android:padding="24dp">
 
     <TextView
@@ -35,6 +36,7 @@
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkblue"
         android:text="Login"
         android:layout_marginTop="24dp"/>
 
@@ -42,6 +44,7 @@
         android:id="@+id/goToRegisterBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register Instead"
+        android:backgroundTint="@color/darkblue"
+        android:text="Don't have an account? Register"
         android:layout_marginTop="8dp"/>
 </LinearLayout>

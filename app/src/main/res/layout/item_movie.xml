@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:elevation="4dp"
+    android:background="@drawable/paper_back"
     android:padding="8dp">
 
     <LinearLayout
@@ -57,6 +58,7 @@
                     android:id="@+id/buttonEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/darkblue"
                     android:text="Edit"
                     android:textSize="12sp" />
 
@@ -64,6 +66,7 @@
                     android:id="@+id/buttonDelete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/darkblue"
                     android:text="Delete"
                     android:textSize="12sp"
                     android:layout_marginStart="8dp" />
