@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import ca.georgiancollege.assignment1.databinding.ActivityMovieListBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MovieListActivity : AppCompatActivity() {
@@ -46,6 +47,16 @@ class MovieListActivity : AppCompatActivity() {
          startActivity(Intent(this, AddEditMovieActivity::class.java))
       }
 
+      binding.buttonLogout.setOnClickListener {
+         FirebaseAuth.getInstance().signOut()
+
+         val intent = Intent(this, LoginActivity::class.java)
+         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+         startActivity(intent)
+         finish()
+      }
+
+
       viewModel.movies.observe(this) {
          adapter.submitList(it)
       }
@@ -57,4 +68,6 @@ class MovieListActivity : AppCompatActivity() {
       super.onResume()
       viewModel.fetchMovies()
    }
+
+
 }
