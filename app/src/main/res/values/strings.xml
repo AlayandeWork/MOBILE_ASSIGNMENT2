@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Assignment1</string>
+    <string name="search">\uf002</string>
+    <string name="clear">Clear</string>
+    <string name="search_for_movies_here">Search for movies here...</string>
+    <string name="loading_movie_details">Loading movie details...</string>
+    <string name="movie_not_found">Movie not found</string>
+    <string name="type_movie">Type: movie</string>
+    <string name="rating_n_a">Rating: N/A</string>
+    <string name="year_2023">Year: 2023</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="poster">Poster</string>
+    <string name="back">\uf060</string>
+</resources>
