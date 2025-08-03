@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
       binding = ActivityMainBinding.inflate(layoutInflater)
       setContentView(binding.root)
 
-      // Initialize adapter
+
       adapter = MovieAdapter(
          onEdit = { movie ->
             val intent = Intent(this, AddEditMovieActivity::class.java)
@@ -44,13 +44,13 @@ class MainActivity : AppCompatActivity() {
       binding.recyclerView.layoutManager = LinearLayoutManager(this)
       binding.recyclerView.adapter = adapter
 
-      // Handle Search Button
+
       binding.buttonSearch.setOnClickListener {
          val query = binding.editSearch.text.toString().trim()
          if (query.isNotEmpty()) {
             viewModel.search(query)
 
-            // UI animations and visibility
+
             binding.recyclerView.visibility = View.VISIBLE
             binding.buttonClear.visibility = View.VISIBLE
             binding.textNoResults.visibility = View.GONE
@@ -62,7 +62,6 @@ class MainActivity : AppCompatActivity() {
          }
       }
 
-      // Handle Clear Button
       binding.buttonClear.setOnClickListener {
          binding.editSearch.setText("")
          adapter.submitList(emptyList())
@@ -74,7 +73,7 @@ class MainActivity : AppCompatActivity() {
          binding.buttonSearch.animate().translationY(0f).setDuration(300).start()
       }
 
-      // Observe data from ViewModel
+
       viewModel.movies.observe(this) { movies ->
          adapter.submitList(movies)
          if (movies.isEmpty()) {

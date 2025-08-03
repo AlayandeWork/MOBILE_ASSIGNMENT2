@@ -2,10 +2,7 @@ package ca.georgiancollege.assignment1
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import ca.georgiancollege.assignment1.databinding.ActivityAddEditMovieBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -38,7 +35,7 @@ class AddEditMovieActivity : AppCompatActivity() {
          val rating = binding.ratingInput.text.toString().trim()
 
          if (title.isEmpty() || year.isEmpty()) {
-            Toast.makeText(this, "Title and year are required", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please enter the title and year", Toast.LENGTH_SHORT).show()
             return@setOnClickListener
          }
 
