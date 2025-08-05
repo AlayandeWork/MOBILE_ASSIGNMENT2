@@ -1,9 +1,9 @@
-package ca.georgiancollege.assignment1
+package ca.georgiancollege.assignment2
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import ca.georgiancollege.assignment1.databinding.ActivityModifyMoviesBinding
+import ca.georgiancollege.assignment2.databinding.ActivityModifyMoviesBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
 class ModifyMoviesActivity : AppCompatActivity() {
@@ -20,12 +20,10 @@ class ModifyMoviesActivity : AppCompatActivity() {
       movieId = intent.getStringExtra("MOVIE_ID")
 
       if (movieId != null) {
-         title = "Edit Movie"
          loadMovieList(movieId!!)
-         "Update Movie".also { binding.submitBtn.text = it }
+         "Update the Movie".also { binding.submitBtn.text = it }
       } else {
-         title = "Add Movie"
-         "Add Movie".also { binding.submitBtn.text = it }
+         "Add New Movie".also { binding.submitBtn.text = it }
       }
 
       binding.submitBtn.setOnClickListener {
@@ -45,13 +43,13 @@ class ModifyMoviesActivity : AppCompatActivity() {
          if (movieId != null) {
             db.collection("movies").document(movieId!!).set(movieMap)
                .addOnSuccessListener {
-                  Toast.makeText(this, "Movie updated", Toast.LENGTH_SHORT).show()
+                  Toast.makeText(this, "The Movie has been updated", Toast.LENGTH_SHORT).show()
                   finish()
                }
          } else {
             db.collection("movies").add(movieMap)
                .addOnSuccessListener {
-                  Toast.makeText(this, "Movie added", Toast.LENGTH_SHORT).show()
+                  Toast.makeText(this, "A New Movie has been added", Toast.LENGTH_SHORT).show()
                   finish()
                }
          }

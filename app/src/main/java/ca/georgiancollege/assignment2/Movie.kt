@@ -1,4 +1,4 @@
-package ca.georgiancollege.assignment1
+package ca.georgiancollege.assignment2
 
 
 data class Movie(

@@ -1,4 +1,4 @@
-package ca.georgiancollege.assignment1
+package ca.georgiancollege.assignment2
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import ca.georgiancollege.assignment1.databinding.ActivitySplashBinding
+import ca.georgiancollege.assignment2.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity()
 {

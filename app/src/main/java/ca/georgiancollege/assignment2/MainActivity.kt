@@ -1,4 +1,4 @@
-package ca.georgiancollege.assignment1
+package ca.georgiancollege.assignment2
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import ca.georgiancollege.assignment1.databinding.ActivityMainBinding
+import ca.georgiancollege.assignment2.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

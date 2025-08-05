@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-   namespace = "ca.georgiancollege.assignment1"
+   namespace = "ca.georgiancollege.assignment2"
    compileSdk = 35
 
    defaultConfig {
-      applicationId = "ca.georgiancollege.assignment1"
+      applicationId = "ca.georgiancollege.assignment2"
       minSdk = 24
       targetSdk = 35
       versionCode = 1

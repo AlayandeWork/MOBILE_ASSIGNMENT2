@@ -1,10 +1,10 @@
-package ca.georgiancollege.assignment1
+package ca.georgiancollege.assignment2
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import ca.georgiancollege.assignment1.databinding.ActivityRegisterBinding
+import ca.georgiancollege.assignment2.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 
 

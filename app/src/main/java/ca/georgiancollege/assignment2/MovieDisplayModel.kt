@@ -1,4 +1,4 @@
-package ca.georgiancollege.assignment1
+package ca.georgiancollege.assignment2
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

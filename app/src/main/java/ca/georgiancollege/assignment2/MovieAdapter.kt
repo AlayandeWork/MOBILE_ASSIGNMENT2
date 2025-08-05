@@ -1,10 +1,10 @@
-package ca.georgiancollege.assignment1
+package ca.georgiancollege.assignment2
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
-import ca.georgiancollege.assignment1.databinding.MovieItemsBinding
+import ca.georgiancollege.assignment2.databinding.MovieItemsBinding
 import com.bumptech.glide.Glide
 
 class MovieAdapter(
