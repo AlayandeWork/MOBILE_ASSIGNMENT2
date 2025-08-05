@@ -3,15 +3,12 @@ package ca.georgiancollege.assignment1
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import ca.georgiancollege.assignment1.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
-// FILE: LoginActivity.kt
+
 class LoginActivity : AppCompatActivity() {
 
    private lateinit var binding: ActivityLoginBinding
@@ -28,22 +25,27 @@ class LoginActivity : AppCompatActivity() {
          val email = binding.emailInput.text.toString().trim()
          val password = binding.passwordInput.text.toString().trim()
 
-         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Please enter both email and password", Toast.LENGTH_SHORT).show()
+         if (email.isEmpty()) {
+            Toast.makeText(this, "Email address cannot be empty", Toast.LENGTH_SHORT).show()
+            return@setOnClickListener
+         }
+
+         if (password.isEmpty()) {
+            Toast.makeText(this, "Password cannot be empty", Toast.LENGTH_SHORT).show()
             return@setOnClickListener
          }
 
          auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                if (task.isSuccessful) {
-                  Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                  startActivity(Intent(this, MovieListActivity::class.java))
+                  Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show()
+                  startActivity(Intent(this, MainActivity::class.java))
                   finish()
                } else {
                   AlertDialog.Builder(this)
-                     .setTitle("Login Failed")
-                     .setMessage(task.exception?.message ?: "Unknown error")
-                     .setPositiveButton("OK", null)
+                     .setTitle("Failed")
+                     .setMessage(task.exception?.message ?: "There was an unknown error")
+                     .setPositiveButton("Success", null)
                      .show()
                }
             }

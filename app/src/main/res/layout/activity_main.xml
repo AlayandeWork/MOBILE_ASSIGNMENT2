@@ -1,79 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainLayout"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/paper_back"
-    tools:context=".MainActivity">
+    android:padding="16dp">
 
-    <!-- Search bar -->
-    <EditText
-        android:id="@+id/editSearch"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/search_for_movies_here"
-        android:padding="12dp"
-        android:background="@drawable/search_edit_text_bg"
-        android:layout_marginTop="150dp"
-        android:layout_marginHorizontal="24dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Search button -->
     <Button
-        android:id="@+id/buttonSearch"
-        android:backgroundTint="@color/darkblue"
-        android:layout_width="wrap_content"
+        android:layout_marginTop="60dp"
+        android:id="@+id/addMovieBtn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/search"
-        android:fontFamily="@font/fa_solid_900"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/editSearch"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:backgroundTint="@color/darkblue"
+        android:text="Add Movie"
+        android:layout_marginBottom="8dp"/>
 
-    <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:visibility="gone"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintTop_toBottomOf="@id/buttonSearch"
-        app:layout_constraintBottom_toTopOf="@id/buttonClear"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- "Movie not found" text -->
-    <TextView
-        android:id="@+id/textNoResults"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/movie_not_found"
-        android:textColor="@android:color/black"
-        android:textSize="19sp"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/buttonSearch"
-        app:layout_constraintBottom_toTopOf="@id/buttonClear"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Clear button -->
+        android:layout_weight="1"/>
     <Button
-        android:id="@+id/buttonClear"
-        android:layout_width="wrap_content"
-        android:backgroundTint="@color/darkblue"
+        android:id="@+id/buttonLogout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/clear"
-        android:visibility="gone"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="Logout"
+        android:backgroundTint="@color/darkblue"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

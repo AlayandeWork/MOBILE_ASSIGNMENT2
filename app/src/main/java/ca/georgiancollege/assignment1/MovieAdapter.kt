@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
-import ca.georgiancollege.assignment1.databinding.ItemMovieBinding
+import ca.georgiancollege.assignment1.databinding.MovieItemsBinding
 import com.bumptech.glide.Glide
 
 class MovieAdapter(
@@ -14,44 +14,45 @@ class MovieAdapter(
 
    private var movieList: List<Movie> = emptyList()
 
-   fun submitList(newList: List<Movie>) {
-      movieList = newList
-      notifyDataSetChanged()
-   }
-
-   inner class MovieViewHolder(val binding: ItemMovieBinding) :
+   inner class MovieViewHolder(val binding: MovieItemsBinding) :
       RecyclerView.ViewHolder(binding.root) {
 
       fun bind(movie: Movie) {
          binding.title.text = movie.title
-         binding.year.text = "Year: ${movie.year}"
-         binding.rating.text = "Rating: ${movie.rating}"
+         "Year: ${movie.year}".also { binding.year.text = it }
+         "Rating: ${movie.rating}".also { binding.rating.text = it }
 
          Glide.with(binding.poster.context)
             .load(movie.posterUrl)
             .into(binding.poster)
 
-         // Edit button click
+
+
          binding.buttonEdit.setOnClickListener {
             onEdit(movie)
          }
 
-         // Delete button click
+
          binding.buttonDelete.setOnClickListener {
             AlertDialog.Builder(binding.root.context)
                .setTitle("Delete Movie")
                .setMessage("Are you sure you want to delete \"${movie.title}\"?")
-               .setPositiveButton("Delete") { _, _ ->
+               .setPositiveButton("Yes") { _, _ ->
                   onDelete(movie)
                }
-               .setNegativeButton("Cancel", null)
+               .setNegativeButton("No", null)
                .show()
          }
       }
    }
 
+   fun submitList(newList: List<Movie>) {
+      movieList = newList
+      notifyDataSetChanged()
+   }
+
    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-      val binding = ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+      val binding = MovieItemsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
       return MovieViewHolder(binding)
    }
 

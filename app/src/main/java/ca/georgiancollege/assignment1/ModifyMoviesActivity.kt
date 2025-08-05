@@ -3,29 +3,29 @@ package ca.georgiancollege.assignment1
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import ca.georgiancollege.assignment1.databinding.ActivityAddEditMovieBinding
+import ca.georgiancollege.assignment1.databinding.ActivityModifyMoviesBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
-class AddEditMovieActivity : AppCompatActivity() {
+class ModifyMoviesActivity : AppCompatActivity() {
 
-   private lateinit var binding: ActivityAddEditMovieBinding
+   private lateinit var binding: ActivityModifyMoviesBinding
    private val db = FirebaseFirestore.getInstance()
    private var movieId: String? = null
 
    override fun onCreate(savedInstanceState: Bundle?) {
       super.onCreate(savedInstanceState)
-      binding = ActivityAddEditMovieBinding.inflate(layoutInflater)
+      binding = ActivityModifyMoviesBinding.inflate(layoutInflater)
       setContentView(binding.root)
 
       movieId = intent.getStringExtra("MOVIE_ID")
 
       if (movieId != null) {
          title = "Edit Movie"
-         loadMovieData(movieId!!)
-         binding.submitBtn.text = "Update"
+         loadMovieList(movieId!!)
+         "Update Movie".also { binding.submitBtn.text = it }
       } else {
          title = "Add Movie"
-         binding.submitBtn.text = "Add"
+         "Add Movie".also { binding.submitBtn.text = it }
       }
 
       binding.submitBtn.setOnClickListener {
@@ -34,10 +34,6 @@ class AddEditMovieActivity : AppCompatActivity() {
          val poster = binding.posterUrlInput.text.toString().trim()
          val rating = binding.ratingInput.text.toString().trim()
 
-         if (title.isEmpty() || year.isEmpty()) {
-            Toast.makeText(this, "Please enter the title and year", Toast.LENGTH_SHORT).show()
-            return@setOnClickListener
-         }
 
          val movieMap = hashMapOf(
             "title" to title,
@@ -66,7 +62,7 @@ class AddEditMovieActivity : AppCompatActivity() {
       }
    }
 
-   private fun loadMovieData(id: String) {
+   private fun loadMovieList(id: String) {
       db.collection("movies").document(id).get()
          .addOnSuccessListener { doc ->
             binding.titleInput.setText(doc.getString("title"))

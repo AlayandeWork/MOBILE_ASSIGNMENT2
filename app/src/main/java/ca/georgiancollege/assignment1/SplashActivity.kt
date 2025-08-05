@@ -29,7 +29,7 @@ class SplashActivity : AppCompatActivity()
       Handler(Looper.getMainLooper()).postDelayed({
          startActivity(Intent(this, LoginActivity::class.java))
          finish()
-      }, 3000) // 3000 milliseconds or 3 seconds
+      }, 3000)
 
       val spinAnimation = AnimationUtils.loadAnimation(this, R.anim.spin)
       binding.spinnerIcon.startAnimation(spinAnimation)

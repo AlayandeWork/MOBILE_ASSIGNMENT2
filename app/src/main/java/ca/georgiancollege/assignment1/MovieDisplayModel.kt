@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
-class MovieListViewModel : ViewModel() {
+class MovieDisplayModel : ViewModel() {
    private val db = FirebaseFirestore.getInstance()
    private val _movies = MutableLiveData<List<Movie>>()
    val movies: LiveData<List<Movie>> = _movies

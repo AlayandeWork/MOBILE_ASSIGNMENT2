@@ -3,14 +3,11 @@ package ca.georgiancollege.assignment1
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import ca.georgiancollege.assignment1.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 
-// FILE: RegisterActivity.kt
+
 class RegisterActivity : AppCompatActivity() {
 
    private lateinit var binding: ActivityRegisterBinding
@@ -27,8 +24,13 @@ class RegisterActivity : AppCompatActivity() {
          val email = binding.emailInput.text.toString().trim()
          val password = binding.passwordInput.text.toString().trim()
 
-         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Email and password cannot be empty", Toast.LENGTH_SHORT).show()
+         if (email.isEmpty()) {
+            Toast.makeText(this, "Email cannot be empty", Toast.LENGTH_SHORT).show()
+            return@setOnClickListener
+         }
+
+         if (password.isEmpty()) {
+            Toast.makeText(this, "Password cannot be empty", Toast.LENGTH_SHORT).show()
             return@setOnClickListener
          }
 
